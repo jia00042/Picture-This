@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,16 +7,31 @@
   <title>Picture This!</title>
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
   <header class="header">
     <div class="title">
       <h1>Picture This!</h1>
       <h4>My Really Cool Blog Post</h4>
     </div>
-    <img src="images/museum.jpg" alt="placeholder">
+
+    <!-- 响应式图片选择 -->
+    <picture>
+      <!-- 视口 >= 1200px，使用最大正方形图片 -->
+      <source srcset="images/museum-800x800.jpg" media="(min-width: 1200px)">
+      <!-- 视口 960px ~ 1200px，使用中等正方形图片 -->
+      <source srcset="images/museum-640x640.jpg" media="(min-width: 960px)">
+
+      <!-- 视口 720px ~ 960px，使用 720px 宽的横向图片 -->
+      <source srcset="images/museum-720x.jpg" media="(min-width: 720px)">
+      <!-- 视口 480px ~ 720px，使用 480px 宽的横向图片 -->
+      <source srcset="images/museum-480x.jpg" media="(min-width: 480px)">
+      <!-- 视口 320px ~ 480px，使用 320px 宽的横向图片 -->
+      <source srcset="images/museum-320x.jpg" media="(min-width: 320px)">
+
+      <!-- 默认加载最小正方形图片，防止不支持 <picture> 的浏览器回退 -->
+      <img src="images/museum-480x480.jpg" alt="Museum">
+    </picture>
 
   </header>
 </body>
-
 </html>
